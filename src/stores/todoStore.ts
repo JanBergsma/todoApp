@@ -1,23 +1,20 @@
 import { defineStore } from 'pinia'
-import type Todo from './todoInterface'
 import { computed, ref, watch } from 'vue'
+import type Todo from './todoInterface'
 
-export const useTodoStore = defineStore('alerts', () => {
-  // const todos = ref(JSON.parse(localStorage.getItem('todos') || '[]') as Array<Todo>)
-  const todos = ref([
-    { details: 'Finish TodoApp', completed: false },
-    { details: 'blabla', completed: false },
-    { details: 'nanan', completed: true },
-    { details: 'cxvxh', completed: false }
-  ] as Array<Todo>)
+export const useTodoStore = defineStore('todos', () => {
+  const todos = ref(JSON.parse(localStorage.getItem('todos') || '[]') as Array<Todo>)
+  const active = computed(() => todos.value.filter((t) => !t.completed))
+  const completed = ref(todos.value.filter((t) => t.completed))
 
-  watch(todos, (newTodos) => {
-    localStorage.setItem('todos', JSON.stringify(newTodos))
-  })
-
-  const getAll = computed(() => todos)
-  const getActive = computed(() => todos.value.filter((t) => !t.completed))
-  const getCompleted = computed(() => todos.value.filter((t) => t.completed))
+  watch(
+    todos,
+    (newTodos) => {
+      console.log(`NewTodos = ${newTodos}`)
+      localStorage.setItem('todos', JSON.stringify(newTodos))
+    },
+    { deep: true }
+  )
 
   const add = (todo: Todo) => todos.value.push(todo)
   const toggleCompleted = (todo: Todo) => {
@@ -30,9 +27,8 @@ export const useTodoStore = defineStore('alerts', () => {
 
   return {
     todos,
-    getAll,
-    getActive,
-    getCompleted,
+    active,
+    completed,
     add,
     remove,
     toggleCompleted
