@@ -9,33 +9,104 @@
   font-weight: normal;
 }
 
+nav a {
+  font-size: 0.875rem;
+}
+
 ol {
   padding: 0;
   margin-top: 1rem;
 }
 
+li {
+  display: flex;
+  align-items: center;
+}
+
 .todo {
   display: flex;
   gap: 1rem;
+  font-size: 1.4rem;
 }
 
-li > button {
+li>button {
   margin-left: auto;
 }
 
-input:checked + div {
-  text-decoration: line-through;
+input[type=checkbox] {
+  height: 1.2rem;
+  width: 1.2rem;
 }
 
-.delete-all {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  gap: 0.2rem;
+input+div {
+  width: 20rem;
+  word-wrap: break-word;
+}
+
+input:checked+div {
+  text-decoration: line-through;
 }
 
 .button-wrapper {
   padding-top: 1rem;
   display: flex;
   justify-content: right;
+}
+
+.form input {
+  padding: 1rem;
+  height: 2.4rem;
+  width: 20rem;
+  border-radius: 10px;
+  border: var(--color-border) solid 1px;
+  font-size: 1.2rem;
+}
+
+.form input:hover {
+  border-color: var(--color-border-hover);
+}
+
+.form button {
+  color: #fff;
+  background: #2f80ed;
+  border: none;
+  height: 2.4rem;
+  width: 4.4rem;
+  border-radius: 10px;
+  margin-left: 0.6rem;
+  font-size: 1.2rem;
+}
+
+.form button:hover {
+  background: #2f81ede7;
+}
+
+.form button:active {
+  background: #0d66f5;
+}
+
+.delete-todo {
+  color: #bdbdbd;
+  background: none;
+  border: none;
+  height: 2.4rem;
+  padding: 0;
+}
+
+.delete-all {
+  color: #fff;
+  background: #EB5757;
+  border: none;
+  height: 2.4rem;
+  padding: 0 1rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.delete-all .material-icons {
+  font-size: 1.1rem;
 }

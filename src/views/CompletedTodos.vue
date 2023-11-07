@@ -5,7 +5,7 @@
             <li class="todo" v-for="( todo, index ) in todos" :key="`${todo.details}, ${todo.completed}`">
                 <input type="checkbox" :name="todo.details + index" :id="todo.details + index" v-model="todo.completed">
                 <div>{{ todo.details }}</div>
-                <button @click="() => todoStore.remove(todo)">
+                <button class="delete-todo" @click="() => todoStore.remove(todo)">
                     <span class="material-icons">
                         delete
                     </span>
