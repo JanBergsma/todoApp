@@ -5,12 +5,11 @@ import type Todo from './todoInterface'
 export const useTodoStore = defineStore('todos', () => {
   const todos = ref(JSON.parse(localStorage.getItem('todos') || '[]') as Array<Todo>)
   const active = computed(() => todos.value.filter((t) => !t.completed))
-  const completed = ref(todos.value.filter((t) => t.completed))
+  const completed = computed(() => todos.value.filter((t) => t.completed))
 
   watch(
     todos,
     (newTodos) => {
-      console.log(`NewTodos = ${newTodos}`)
       localStorage.setItem('todos', JSON.stringify(newTodos))
     },
     { deep: true }
@@ -23,7 +22,8 @@ export const useTodoStore = defineStore('todos', () => {
       todos.value[index].completed = !todos.value[index].completed
     }
   }
-  const remove = (todo: Todo) => (todos.value = todos.value.filter((t) => !Object.is(t, todo)))
+  const remove = (todo: Todo) => (todos.value = todos.value.filter((t) => t !== todo))
+  const clear = () => (todos.value = active.value)
 
   return {
     todos,
@@ -31,6 +31,7 @@ export const useTodoStore = defineStore('todos', () => {
     completed,
     add,
     remove,
+    clear,
     toggleCompleted
   }
 })

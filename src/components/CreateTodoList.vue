@@ -26,21 +26,12 @@ const todos = props.selectAll ? computed(() => todoStore.todos) : computed(() =>
 const newTodoDetails = ref('')
 
 const createTodo = () => {
-    todoStore.add({ details: newTodoDetails.value, completed: false })
+    if (newTodoDetails.value) {
+        todoStore.add({ details: newTodoDetails.value, completed: false })
+        newTodoDetails.value = ''
+    }
 }
 
 
 </script>
 
-<style scoped>
-ol {
-    padding: 0;
-    margin-top: 1rem;
-}
-
-.todo {
-    display: flex;
-    gap: 1rem;
-    outline: 1px solid red;
-}
-</style>
