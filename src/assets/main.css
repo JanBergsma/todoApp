@@ -5,7 +5,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
   font-weight: normal;
 }
 
@@ -48,8 +47,8 @@ input:checked+div {
 }
 
 .button-wrapper {
-  padding-top: 1rem;
   display: flex;
+  padding-top: 1rem;
   justify-content: right;
 }
 
@@ -94,6 +93,7 @@ input:checked+div {
 }
 
 .delete-all {
+  display: grid;
   color: #fff;
   background: #EB5757;
   border: none;
@@ -101,7 +101,6 @@ input:checked+div {
   padding: 0 1rem;
   border-radius: 10px;
   font-size: 1.2rem;
-  display: grid;
   grid-auto-flow: column;
   align-items: center;
   gap: 0.2rem;
@@ -109,4 +108,50 @@ input:checked+div {
 
 .delete-all .material-icons {
   font-size: 1.1rem;
+}
+
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+}
+
+.center {
+  display: grid;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: bold;
+
+}
+
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+nav a.router-link-exact-active {
+  border-bottom: 2px solid var(--color-active);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  color: var(--color-text);
+  font-weight: bold;
+  padding: 0 1rem;
+  text-decoration: none;
+  margin-left: 2rem;
 }
