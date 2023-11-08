@@ -50,7 +50,7 @@ nav {
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid var(--vt-c-divider-light-1);
+  border-bottom: 1px solid var(--color-border);
 }
 
 nav a.router-link-exact-active {
@@ -62,7 +62,7 @@ nav a.router-link-exact-active:hover {
 }
 
 nav a {
-  color: var(--vt-c-text-light-1);
+  color: var(--color-text);
   font-weight: bold;
   display: inline-block;
   padding: 0 1rem;
