@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AllTodos from '../views/AllTodos.vue'
 import ActiveTodos from '../views/ActiveTodos.vue'
+import AllTodos from '../views/AllTodos.vue'
 import CompletedTodos from '../views/CompletedTodos.vue'
 
 const router = createRouter({
@@ -8,6 +8,10 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: '/all'
+    },
+    {
+      path: '/all',
       name: 'all',
       component: AllTodos
     },

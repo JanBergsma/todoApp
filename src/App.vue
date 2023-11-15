@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from 'vue-router';
       </div>
       <div class="wrapper">
         <nav>
-          <RouterLink to="/">All</RouterLink>
+          <RouterLink to="/all">All</RouterLink>
           <RouterLink to="/active">Active</RouterLink>
           <RouterLink to="/completed">Completed</RouterLink>
         </nav>

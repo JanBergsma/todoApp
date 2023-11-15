@@ -1,6 +1,6 @@
 
 <template>
-    <div class="container">
+    <div class="container" v-if="todos.length">
         <ol>
             <li class="todo" v-for="( todo, index ) in todos" :key="`${todo.details}, ${todo.completed}`">
                 <input type="checkbox" :name="todo.details + index" :id="todo.details + index" v-model="todo.completed">
@@ -20,6 +20,9 @@
                 delete all
             </button>
         </div>
+    </div>
+    <div class="empty-text" v-else>
+        <p>There are no completed Todos.</p>
     </div>
 </template>
 
