@@ -11,6 +11,11 @@
   grid-template-rows: auto;
 }
 
+main {
+  display: grid;
+  justify-content: center;
+}
+
 .center {
   grid-column: center;
 }
