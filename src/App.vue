@@ -18,7 +18,11 @@ import { RouterLink, RouterView } from 'vue-router';
       </div>
     </header>
     <main>
-      <RouterView />
+      <RouterView v-slot="{ Component, route }">
+        <Transition name="bounce">
+          <Component :is="Component" :key="route.path" />
+        </Transition>
+      </RouterView>
     </main>
   </div>
 </template>
