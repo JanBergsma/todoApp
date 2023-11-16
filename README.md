@@ -1,5 +1,7 @@
 # todoapp
 
+> **Todo:** Input field too far to the left.
+
 ## Comments from Artyom Ulanchik
 
 This template should help get you started developing with Vue 3 in Vite.
